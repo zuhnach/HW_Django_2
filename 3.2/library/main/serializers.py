@@ -1,23 +1,12 @@
 from rest_framework import serializers
-
+from .models import Book, Order
 
 class BookSerializer(serializers.ModelSerializer):
-    # реализуйте сериализацию объектов модели Book
-    ...
-
-    #доп задание
-    # def to_representation(self, instance):
-    #     representation = super().to_representation(instance)
-    #     representation['orders_count'] = ...
-    #     return representation
-
+    class Meta:
+        model = Book
+        fields = '__all__'
 
 class OrderSerializer(serializers.ModelSerializer):
-    # добавьте поля модели Order
-    ...
-
-    #доп задание
-    # def to_representation(self, instance):
-    #     representation = super().to_representation(instance)
-    #     representation['books'] = ...
-    #     return representation
+    class Meta:
+        model = Order
+        fields = '__all__'
